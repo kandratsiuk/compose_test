@@ -1,0 +1,25 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+    ext {
+        compose_version = '1.0.5'
+        kotlin_version = '1.5.31'
+        //This version (1.0.5) of the Compose Compiler requires Kotlin version 1.5.31 but you appear
+        //to be using Kotlin version 1.6.10 which is not known to be compatible.  Please fix your
+        //configuration (or `suppressKotlinVersionCompatibilityCheck` but don't say I didn't warn you!).
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.android.tools.build:gradle:7.0.4"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
