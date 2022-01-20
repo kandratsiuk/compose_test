@@ -17,11 +17,11 @@ import androidx.navigation.compose.rememberNavController
 @Preview(showBackground = true)
 @Composable
 fun MiddleScreenPreview() {
-    MiddleScreen(rememberNavController())
+    MiddleScreen(MainViewModel())
 }
 
 @Composable
-fun MiddleScreen(navController: NavHostController) {
+fun MiddleScreen(viewModel: MainViewModel) {
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -39,14 +39,12 @@ fun MiddleScreen(navController: NavHostController) {
         Spacer(modifier = Modifier.height(26.dp))
         Button(
             text = "Go Next",
-            //TODO call event method from ViewModel instead
-            onClick = { navController.navigate(Destinations.ExitScreen.route) }
+            onClick = { viewModel.onSecondScreenButtonClick() }
         )
         Spacer(modifier = Modifier.height(12.dp))
         Button(
             text = "Go Back",
-            //TODO call event method from ViewModel instead
-            onClick = { navController.popBackStack() }
+            onClick = { viewModel.onBackButtonClick() }
         )
     }
 }

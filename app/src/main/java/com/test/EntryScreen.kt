@@ -17,11 +17,11 @@ import androidx.navigation.compose.rememberNavController
 @Preview(showBackground = true)
 @Composable
 fun EntryScreenPreview() {
-    EntryScreen(rememberNavController())
+    EntryScreen(MainViewModel())
 }
 
 @Composable
-fun EntryScreen(navController: NavHostController) {
+fun EntryScreen(viewModel: MainViewModel) {
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -39,8 +39,7 @@ fun EntryScreen(navController: NavHostController) {
         Spacer(modifier = Modifier.height(26.dp))
         Button(
             text = "Go Next",
-            //TODO call event method from ViewModel instead
-            onClick = { navController.navigate(Destinations.MiddleScreen.route) }
+            onClick = { viewModel.onFirstScreenButtonClick() }
         )
     }
 }

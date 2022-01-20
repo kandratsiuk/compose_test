@@ -7,20 +7,21 @@ import androidx.navigation.compose.composable
 
 @Composable
 fun SetupGraph(
-    navController: NavHostController
+    navController: NavHostController,
+    viewModel: MainViewModel
 ) {
     NavHost(
         navController = navController,
         startDestination = Destinations.EntryScreen.route
     ) {
         composable(Destinations.EntryScreen.route) {
-            EntryScreen(navController)
+            EntryScreen(viewModel)
         }
         composable(Destinations.MiddleScreen.route) {
-            MiddleScreen(navController)
+            MiddleScreen(viewModel)
         }
         composable(Destinations.ExitScreen.route) {
-            ExitScreen(navController)
+            ExitScreen(viewModel)
         }
     }
 }

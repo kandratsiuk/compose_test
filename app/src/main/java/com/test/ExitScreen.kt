@@ -15,11 +15,11 @@ import androidx.navigation.compose.rememberNavController
 @Preview(showBackground = true)
 @Composable
 fun ExitScreenPreview() {
-    ExitScreen(rememberNavController())
+    ExitScreen(MainViewModel())
 }
 
 @Composable
-fun ExitScreen(navController: NavHostController) {
+fun ExitScreen(viewModel: MainViewModel) {
     Column(
         modifier = Modifier.fillMaxSize(),
         horizontalAlignment = Alignment.CenterHorizontally,
@@ -37,8 +37,7 @@ fun ExitScreen(navController: NavHostController) {
         Spacer(modifier = Modifier.height(26.dp))
         Button(
             text = "Go Back",
-            //TODO call event method from ViewModel instead
-            onClick = { navController.popBackStack() }
+            onClick = { viewModel.onThirdScreenButtonClick() }
         )
     }
 }
