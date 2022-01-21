@@ -1,5 +1,6 @@
 package com.test
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -15,13 +16,27 @@ fun SetupGraph(
         startDestination = Destinations.EntryScreen.route
     ) {
         composable(Destinations.EntryScreen.route) {
-            EntryScreen(viewModel)
+            EntryScreen(
+                viewModel,
+                onEvent = {
+                    Log.d("MainNavGraph", "EntryScreen $it")
+                }
+            )
         }
         composable(Destinations.MiddleScreen.route) {
-            MiddleScreen(viewModel)
+            MiddleScreen(
+                viewModel,
+                onEvent = {
+                    Log.d("MainNavGraph", "MiddleScreen $it")
+                })
         }
         composable(Destinations.ExitScreen.route) {
-            ExitScreen(viewModel)
+            ExitScreen(
+                viewModel,
+                onEvent = {
+                    Log.d("MainNavGraph", "ExitScreen $it")
+                }
+            )
         }
     }
 }
